@@ -1,4 +1,4 @@
-# i2-message-bus
+# I2 Framework MessageBus Module
 Java POJO messaging and event bus module
 
 ## Getting started
