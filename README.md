@@ -1,6 +1,9 @@
 # I2 Framework MessageBus Module
 Java POJO messaging and event bus module
 
+## Dependencies
+* None
+
 ## Getting started
 Messages are POJOs (Plain Old Java Objects) which you send using a `MessageBus` to subscribers  who receive these messages. There is virtually no setup or tear down.
 
