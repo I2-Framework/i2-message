@@ -67,5 +67,22 @@ messageBus.unsubscribe(example1);
 which will unsubscribe all previous subscribers of `example` object. Technically we don't have to do that as all subscribers are implicitely unsubscribed when the instance of the object they are part of is garbage collected. However it is cleaner to excplicitely unsubscribe and release any held resources.
 
 ### More on subscribers
+The `MessageBus` module relies on message injection when invoking methods which are subscribers of a particular type or types of messages. The `MessageBus` can inject more then just messages when invoking a subscriber. 
+* Specifies `org.i2.messagebus.MessageInfo` interface which contains more information about the message just recevied
+* `<T> @MessageSource T source` when messages are posted from a particular source, the source object of a particular type will also be injected. Only messages posted from a source that matches the parameter type will be received. 
+* Specifies `<T> @MessageSource Optional<T> source` an optional source 
+Here is a short example of both:
+```java
+@Subscribe
+public void handler2(Message message, @MessageSource Example1 source) {}
+```
+where the source of the message must be specified and it must come from `Example1 type and
+```java
+@Subscribe
+public void handler3(Message message, MessageInfo info, @MessageSource Optional<Example1> source) {
+```
+Where the source is optional, meaning it did not have to be specified when posted, but if it was, it will be supplied. 
 
+### General reference injection
+When combined with `org.i2.inject` module, any bound reference object can be injected into the subscriber method. However,  without the inclusion of the inject module, just the builtin injections will occur for the described builtin types such as the message, `MessageInfo` data and any message *source* object if present
 
