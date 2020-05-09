@@ -73,9 +73,9 @@ which will unsubscribe all previous subscribers of `example` object. Technically
 ### More on subscribers
 The `MessageBus` module relies on message and parameter injection when invoking subscribers of a particular type or types of messages. The `MessageBus` can inject the following builtin types when posting a message to a subscriber.
 
+* `@MessageSource T source` when messages are posted from a particular source, the source object of a particular type will also be injected. Only messages posted from a source that matches the parameter type will be received. 
+* `@MessageSource Optional<T> source` an optional source in either case where a message is posted form a particular source or general broadcast
 * `MessageInfo` interface which contains more information about the message just recevied
-* `<T> @MessageSource T source` when messages are posted from a particular source, the source object of a particular type will also be injected. Only messages posted from a source that matches the parameter type will be received. 
-* Specifies `<T> @MessageSource Optional<T> source` an optional source 
 * `MessageBus` injects the message bus which posted the message
 * `MessageDomain` injects the current message domain, `LocalMessageDomain` by default
 
