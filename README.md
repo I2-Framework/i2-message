@@ -91,16 +91,16 @@ where the source of the message must be specified and it must come from `Example
 @Subscribe
 public void handler3(Message message, MessageInfo info, @Source Optional<Example1> source) {
 ```
-Where the source is optional, meaning it did not have to be specified when posted, but if it was, it will be supplied. Also a `MessageInfo` object was injected which provides more information about the message and even allows the subscriber to *veto* further propagation of the message. 
+Where the source is optional, meaning it did not have to be specified when posting a message, but if it was, it will be supplied. Also a `MessageInfo` object was injected which provides more information about the message and even allows the subscriber to *veto* further propagation of the message. 
 
 ### General reference injection
-When combined with `org.i2.inject` module, any bound reference object can be injected into the subscriber method. However,  without the inclusion of the inject module, just the builtin injections will occur for the described builtin types such as the message, `MessageInfo` data and any message *source* object if present
+When combined with `org.i2.inject` module, any bound reference object can be injected into the subscriber method. However,  without the inclusion of the inject module, just the builtin injections will occur for the described builtin types such as the message, `MessageInfo` data and any message *source* object if present.
 
 # Domains and MessageBus name space
 
 The `MessageBus` instances are allocated in a hierarchal domain space using static call `MessageBus.getMessageBus(String name)`. The default domain is called the `LocalMessageDomain` where all of the communication happens locally. Following the `java.util.logging` name space pattern, the `MessageBus` module allocates buses out of the current local doamin. The convention is to use dot-separated hierarchal names or java package names, but just like with logging framework, any name can be used.
 
-Further more, multiple local domains can be created for segragation of name space and provide scope access to message buses. This allows applications to secure their messages so outside actors do not intercept private messages. Access Control can be used to secure certain domains.
+Further more, multiple local domains can be created for segragation of name space and provide scope access to message buses. This allows applications to secure their messages so outside actors do not intercept private messages. Access Control can be used to secure domains.
 
 Other domain types also are defined (in other module extensions) for remote message sending and asynchronous communication between multiple domains, etc.
 
