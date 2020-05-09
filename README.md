@@ -75,8 +75,8 @@ which will unsubscribe all previous subscribers of `example` object. Technically
 ### More on subscribers
 The `MessageBus` module relies on message and parameter injection when invoking subscribers of a particular type or types of messages. The `MessageBus` can inject the following builtin types when posting a message to a subscriber.
 
-* `@MessageSource T source` when messages are posted from a particular source, the source object of a particular type will also be injected. Only messages posted from a source that matches the parameter type will be received. 
-* `@MessageSource Optional<T> source` an optional source in either case where a message is posted form a particular source or general broadcast
+* `@Source T source` when messages are posted from a particular source, the source object of a particular type will also be injected. Only messages posted from a source that matches the parameter type will be received. 
+* `@Source Optional<T> source` an optional source in either case where a message is posted form a particular source or general broadcast
 * `MessageInfo` interface which contains more information about the message just recevied
 * `MessageBus` injects the message bus which posted the message
 * `MessageDomain` injects the current message domain, `LocalMessageDomain` by default
@@ -84,12 +84,12 @@ The `MessageBus` module relies on message and parameter injection when invoking 
 Here is a short example of both:
 ```java
 @Subscribe
-public void handler2(Message message, @MessageSource Example1 source) {}
+public void handler2(Message message, @Source Example1 source) {}
 ```
 where the source of the message must be specified and it must come from `Example1` type and
 ```java
 @Subscribe
-public void handler3(Message message, MessageInfo info, @MessageSource Optional<Example1> source) {
+public void handler3(Message message, MessageInfo info, @Source Optional<Example1> source) {
 ```
 Where the source is optional, meaning it did not have to be specified when posted, but if it was, it will be supplied. Also a `MessageInfo` object was injected which provides more information about the message and even allows the subscriber to *veto* further propagation of the message. 
 
