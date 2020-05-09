@@ -25,6 +25,8 @@ public void myMessageHandler(Message message) {
 ```
 The key points are the following. First, the method is annotated with `@Subscribe` annotation which marks this method as a message receiver. Secondly, the first parameter `Message message` determines the type of messages this subscriber is will receive. The parameter type `Message` or any of its superclasses will be used to determine which messages are delivered to this subscriber method.
 
+**Note:** the traditional way also exists `bus.subscribe(Message.class, new Subscriber() {...})` or more compactly `bus.subscribe(Message.class, System.out::println)`
+
 The subscription itself occures at some control point which in our example is the `Example1.main()` method. 
 ```java
 final static MessageBus messageBus = MessageBus.getMessageBus("org.i2.messagebus.tutorials.tutorial1");
