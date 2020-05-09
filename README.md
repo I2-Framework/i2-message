@@ -5,7 +5,7 @@ Java messaging and event bus module. Send POJO (Plain Old Java Object) messages 
 * None
 
 ## Getting started
-Messages are POJOs (Plain Old Java Objects) which you send using a `MessageBus` to subscribers  who receive these messages. There is virtually no setup or tear down.
+Messages are POJOs (Plain Old Java Objects) which you send using a `MessageBus` to subscribers  who receive these messages. There is very little to no setup or tear down.
 
 First we setup a subscriber which is any method in our example object that is annotated with `@Subscribe` annotation. This method will be called and our POJO message object will be *injected*. By convention, the first not-annotated method parameter is expected to be the message parameter. The class type of the *message* parater determines the types messages to be received.
 
