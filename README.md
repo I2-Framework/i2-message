@@ -77,6 +77,7 @@ The `MessageBus` module relies on message and parameter injection when invoking 
 * `<T> @MessageSource T source` when messages are posted from a particular source, the source object of a particular type will also be injected. Only messages posted from a source that matches the parameter type will be received. 
 * Specifies `<T> @MessageSource Optional<T> source` an optional source 
 * `MessageBus` injects the message bus which posted the message
+* `MessageDomain` injects the current message domain, `LocalMessageDomain` by default
 
 Here is a short example of both:
 ```java
