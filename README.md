@@ -1,4 +1,4 @@
-# I2 Framework MessageBus Module
+# I2 Framework Messaging and EventBus Module
 Java messaging and event bus module. Send POJO (Plain Old Java Object) messages and events with ease. This module is completely standalone but is part of the greater *I2 Framework*.
 
 ## Module Dependencies
