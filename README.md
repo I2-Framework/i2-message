@@ -100,7 +100,7 @@ Where the source is optional, meaning it did not have to be specified when posti
 ### General reference injection
 When combined with `org.i2.inject` module, any bound reference object can be injected into the subscriber method. However,  without the inclusion of the inject module, just the builtin injections will occur for the described builtin types such as the message, `MessageInfo` data and any message *source* object if present.
 
-# Domains and MessageBus name space
+# Domains and name space
 
 The `MessageBus` instances are allocated in a hierarchal domain space using static call `MessageBus.getMessageBus(String name)`. The default domain is called the `LocalMessageDomain` where all of the communication happens locally. Following the `java.util.logging` name space pattern, the `MessageBus` module allocates buses out of the current local doamin. The convention is to use dot-separated hierarchal names or java package names, but just like with logging framework, any name can be used.
 
