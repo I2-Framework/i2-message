@@ -5,6 +5,14 @@ Welcome to **i2-message**, a Java messaging and event bus module. Send POJO (Pla
 * Software coding 90% complete
 * GitHub checkin no later than May 16, 2020
 
+## API Stabilizing
+
+All of the API is complete, except a few last minor bugs I have to track down. The main API which the `MessageBus` is a major part of is complete.
+
+`MessageBus` API outline:
+
+![i2-message-MessageBus-Outline](https://user-images.githubusercontent.com/18365790/81990992-446e2880-960e-11ea-8eac-ffe45b84e547.png)
+
 ## Module Dependencies
 * None
 
