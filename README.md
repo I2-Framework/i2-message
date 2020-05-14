@@ -5,6 +5,8 @@ Welcome to **i2-message**, a Java messaging and event bus module. Send POJO (Pla
 * Software coding 90% complete
 * GitHub checkin no later than May 16, 2020
 
+**=> Check out the** [Full Status Blog](https://github.com/I2-Framework/i2-message/wiki/Status-Blog)
+
 ## Module Dependencies
 * None
 
