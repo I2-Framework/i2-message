@@ -5,49 +5,6 @@ Welcome to **i2-message**, a Java messaging and event bus module. Send POJO (Pla
 * Software coding 90% complete
 * GitHub checkin no later than May 16, 2020
 
-## API Stabilizing
-
-All of the API is complete, except a few last minor bugs I have to track down. The main API which the `MessageBus` is a major part of is complete.
-
-`MessageBus` API outline:
-
-![i2-message-MessageBus-Outline](https://user-images.githubusercontent.com/18365790/81990992-446e2880-960e-11ea-8eac-ffe45b84e547.png)
-
-This works perfectly!
-```java
-public class Example1 {
-
-	final static MessageBus messageBus = MessageBus.getMessageBus(Example1.class.getPackageName());
-
-	public static void main(String[] args) {
-		new Example1();
-	}
-
-	public Example1() {
-		Subscription sub1 = messageBus.subscribeAll(this);
-
-		Subscription sub2 = messageBus.subscribe(String.class, System.out::println);
-
-		messageBus.post("Hello World");
-
-		sub1.removeSubscriber();
-		sub2.removeSubscriber();
-
-	}
-
-	@Subscribe
-	public void handler(String message) {
-		System.out.println("message=" + message);
-	}
-
-}
-```
-**With Output:***
-```
-message=Hello World
-Hello World
-```
-
 ## Module Dependencies
 * None
 
