@@ -2,9 +2,8 @@
 Welcome to **i2-message**, a Java messaging and event bus module. Send POJO (Plain Old Java Object) messages and events with ease. This module is completely standalone but is part of the greater *I2 Framework*.
 
 ## Status
-* Software coding 90% complete
-* GitHub checkin no later than May 16, 2020
-
+* Local domain and bus dispatch complete
+* Currently, working on remote multi-domain messaging
 **=> Check out the** [Full Status Blog](https://github.com/I2-Framework/i2-message/wiki/Status-Blog)
 
 ## Module Dependencies
